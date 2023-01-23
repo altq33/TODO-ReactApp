@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ProductSans";
+  src: url(./assets/fonts/productsans.ttf);
+}
+
+@layer base {
+  body {
+    @apply font-ProductSans h-screen w-full;
+  }
+}
+
+@layer components {
+  .todo {
+    @apply w-full h-full text-[24px];
+  }
+
+  .todo-sidebar {
+    @apply w-1/4 h-full bg-side-bg border-sb-border border border-solid pl-[32px] pt-[50px];
+  }
+}
+
+@layer utilities {
+}
+
+/* All used styles without layer */
