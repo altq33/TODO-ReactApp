@@ -19,7 +19,39 @@
   }
 
   .todo-sidebar {
-    @apply w-1/4 h-full bg-side-bg border-sb-border border border-solid pl-[32px] pt-[50px];
+    @apply w-1/4 h-full bg-side-bg border-sb-border border border-solid px-[32px] pt-[50px] pb-[20px] flex flex-col flex-grow-0 shrink-0 justify-between;
+  }
+
+  .todo-sidebar ul li {
+    @apply transition-transform  py-[10px] pl-[12px] cursor-pointer w-full hover:translate-x-2 flex items-center justify-between;
+  }
+
+  .todo-sidebar ul li.selected {
+    @apply rounded-[4px] bg-white shadow-md cursor-default;
+  }
+
+  .close-icon {
+    @apply bg-[url("./assets/icons/close.svg")] w-[15px] h-[15px] bg-no-repeat hidden bg-cover mr-[14px] cursor-pointer;
+  }
+
+  .todo-sidebar ul li.selected:hover .close-icon {
+    @apply block;
+  }
+
+  .color-tag {
+    @apply w-[15px] h-[15px] rounded-[50%] mr-[10px];
+  }
+
+  .add-folder-btn {
+    @apply cursor-pointer ml-[10px] self-start transition hover:scale-110  text-grey before:content-[""] before:inline-block before:bg-no-repeat before:bg-cover before:bg-[url("./assets/icons/add.svg")] before:w-[15px] before:h-[15px] before:mr-[10px];
+  }
+
+  .add-folder-form {
+    @apply w-[300px] h-[148px] p-[18px] bg-white rounded-[10px] flex flex-col justify-between shadow-md;
+  }
+
+  .add-folder-form .color-tag {
+    @apply w-[20px] h-[20px] m-0;
   }
 }
 
