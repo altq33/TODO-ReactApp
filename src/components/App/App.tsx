@@ -17,7 +17,9 @@ export const App: React.FC = () => {
       <div className="todo-sidebar">
         <List label="All tasks" folders={folders} />
         <div>
-          {addModalIsOpen && <AddFolderModal />}
+          {addModalIsOpen && (
+            <AddFolderModal closeModal={() => setAddModalIsOpen(false)} />
+          )}
           <AddFolderBtn onClick={() => setAddModalIsOpen(true)} />
         </div>
       </div>

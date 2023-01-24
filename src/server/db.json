@@ -1,0 +1,12 @@
+{
+    "colors": [
+        {"id": 1, "colorHex": "#C9D1D3" },
+        {"id": 2, "colorHex": "#42B883" },
+        {"id": 3, "colorHex": "#64C4ED" },
+        {"id": 4, "colorHex": "#FFBBCC" },
+        {"id": 5, "colorHex": "#B6E6BD" },
+        {"id": 6, "colorHex": "#C355F5" },
+        {"id": 7, "colorHex": "#09011A" },
+        {"id": 8, "colorHex": "#FF6464" }
+    ]
+}

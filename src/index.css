@@ -43,15 +43,23 @@
   }
 
   .add-folder-btn {
-    @apply cursor-pointer ml-[10px] self-start transition hover:scale-110  text-grey before:content-[""] before:inline-block before:bg-no-repeat before:bg-cover before:bg-[url("./assets/icons/add.svg")] before:w-[15px] before:h-[15px] before:mr-[10px];
+    @apply cursor-pointer ml-[10px] self-start transition hover:scale-110  text-gray before:content-[""] before:inline-block before:bg-no-repeat before:bg-cover before:bg-[url("./assets/icons/add.svg")] before:w-[15px] before:h-[15px] before:mr-[10px];
   }
 
   .add-folder-form {
-    @apply w-[300px] h-[148px] p-[18px] bg-white rounded-[10px] flex flex-col justify-between shadow-md;
+    @apply w-[300px] h-[148px] p-[18px] bg-white rounded-[10px] flex flex-col justify-between shadow-md relative;
   }
 
   .add-folder-form .color-tag {
-    @apply w-[20px] h-[20px] m-0;
+    @apply w-[20px] h-[20px] m-0 cursor-pointer;
+  }
+
+  .add-folder-form .color-tag.selected {
+    @apply border-2 border-black;
+  }
+
+  .close-modal-btn {
+    @apply bg-[url('./assets/icons/close-modal.svg')] bg-cover bg-no-repeat w-[20px] h-[20px] absolute top-[-5px] right-[-5px];
   }
 }
 

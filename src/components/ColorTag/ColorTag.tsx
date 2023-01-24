@@ -1,14 +1,28 @@
 import React from "react";
 
-export const ColorTag = ({ colorId }: { colorId: number }) => {
+interface IColorTagProps {
+  colorId: number;
+  selected?: boolean;
+  onClick?: () => void;
+}
+
+export const ColorTag: React.FC<IColorTagProps> = ({
+  colorId,
+  selected,
+  onClick,
+}) => {
   let color: string;
 
   switch (colorId) {
     case 1: {
-      color = "bg-green-point";
+      color = "bg-gray-point";
       break;
     }
     case 2: {
+      color = "bg-green-point";
+      break;
+    }
+    case 3: {
       color = "bg-blue-point";
       break;
     }
@@ -21,7 +35,7 @@ export const ColorTag = ({ colorId }: { colorId: number }) => {
       break;
     }
     case 6: {
-      color = "bg-purple-point";
+      color = "bg-black";
       break;
     }
     case 7: {
@@ -29,8 +43,10 @@ export const ColorTag = ({ colorId }: { colorId: number }) => {
       break;
     }
     default:
-      color = "bg-grey-point";
+      color = "bg-gray-point";
   }
 
-  return <div className={`color-tag ${color}`}></div>;
+  if (selected) color += " selected";
+
+  return <div onClick={onClick} className={`color-tag ${color}`}></div>;
 };

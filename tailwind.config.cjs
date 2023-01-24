@@ -8,6 +8,7 @@ module.exports = {
       },
       colors: {
         transparent: "transparent",
+        "gray-point": "#C9D1D3",
         "side-bg": "#E5E5E5",
         "green-point": "#42B883",
         "btn-color": "#4DD599",
@@ -18,7 +19,8 @@ module.exports = {
         "purple-point": "#C355F5",
         "salmon-point": "#FF6464",
         "sb-border": "#F1F1F1",
-        grey: "#767676",
+        "close-btn-bg": "#5C5C5C",
+        gray: "#767676",
       },
     },
   },
