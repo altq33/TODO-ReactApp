@@ -8,5 +8,12 @@
         {"id": 6, "colorHex": "#C355F5" },
         {"id": 7, "colorHex": "#09011A" },
         {"id": 8, "colorHex": "#FF6464" }
+    ],
+    "folders": [
+        {"id": 1, "title": "Keks1", "colorId": 1},
+        {"id": 2, "title": "Keks2", "colorId": 4},
+        {"id": 3, "title": "Keks3", "colorId": 5},
+        {"id": 4, "title": "Keks4", "colorId": 3},
+        {"id": 5, "title": "Keks5", "colorId": 6}
     ]
 }

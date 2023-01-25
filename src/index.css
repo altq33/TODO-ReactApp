@@ -23,18 +23,18 @@
   }
 
   .todo-sidebar ul li {
-    @apply transition-transform  py-[10px] pl-[12px] cursor-pointer w-full hover:translate-x-2 flex items-center justify-between;
+    @apply transition rounded-[4px] py-[10px] pl-[12px] cursor-pointer w-full hover:bg-zinc-50 hover:bg-opacity-50 hover:translate-x-2 flex items-center justify-between;
   }
 
   .todo-sidebar ul li.selected {
-    @apply rounded-[4px] bg-white shadow-md cursor-default;
+    @apply  bg-white shadow-md cursor-default;
   }
 
   .close-icon {
     @apply bg-[url("./assets/icons/close.svg")] w-[15px] h-[15px] bg-no-repeat hidden bg-cover mr-[14px] cursor-pointer;
   }
 
-  .todo-sidebar ul li.selected:hover .close-icon {
+  .todo-sidebar ul li:hover .close-icon {
     @apply block;
   }
 
@@ -43,11 +43,11 @@
   }
 
   .add-folder-btn {
-    @apply cursor-pointer ml-[10px] self-start transition hover:scale-110  text-gray before:content-[""] before:inline-block before:bg-no-repeat before:bg-cover before:bg-[url("./assets/icons/add.svg")] before:w-[15px] before:h-[15px] before:mr-[10px];
+    @apply cursor-pointer ml-[10px] outline-none self-start transition hover:scale-110  text-gray before:content-[""] before:inline-block before:bg-no-repeat before:bg-cover before:bg-[url("./assets/icons/add.svg")] before:w-[15px] before:h-[15px] before:mr-[10px];
   }
 
   .add-folder-form {
-    @apply w-[300px] h-[148px] p-[18px] bg-white rounded-[10px] flex flex-col justify-between shadow-md relative;
+    @apply focus:outline-none w-[300px] h-[148px] p-[18px] bg-white rounded-[10px] flex flex-col justify-between shadow-md relative;
   }
 
   .add-folder-form .color-tag {

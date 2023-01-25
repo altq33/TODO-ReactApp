@@ -1,20 +1,20 @@
 import React from "react";
-import listImg from "../../assets/icons/Vector.svg";
-import { ListItem } from "./ListItem/ListItem";
+import listImg from "../assets/icons/Vector.svg";
+import { ListItem } from "./ListItem";
 
 export interface IFolder {
-  id?: number;
+  id: number;
   title: string;
   colorId: number;
-  selected: boolean;
 }
 
 interface IListProps {
   label: string;
   folders: Array<IFolder>;
+  deleteItem: (id: number) => void
 }
 
-export const List: React.FC<IListProps> = ({ label, folders }) => {
+export const List: React.FC<IListProps> = ({ label, folders, deleteItem }) => {
   return (
     <ul className="todo-list">
       <li className="flex items-center mb-[29px] text-[24px] selected">
@@ -29,13 +29,14 @@ export const List: React.FC<IListProps> = ({ label, folders }) => {
           <span className="font-bold block">{label}</span>
         </div>
       </li>
-      {folders.map((el) => {
+      {folders.map((el, i) => {
         return (
           <ListItem
+            id={el.id}
             colorId={el.colorId}
             title={el.title}
             key={el.id}
-            selected={el.selected}
+            deleteItem={deleteItem}
           />
         );
       })}
