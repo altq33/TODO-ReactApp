@@ -1,17 +1,19 @@
 import React from "react";
 import listImg from "../assets/icons/Vector.svg";
 import { ListItem } from "./ListItem";
+import { ITask } from "./TasksItem";
 
 export interface IFolder {
   id: number;
   title: string;
   colorId: number;
+  tasks?: ITask[];
 }
 
 interface IListProps {
   label: string;
   folders: Array<IFolder>;
-  deleteItem: (id: number) => void
+  deleteItem: (id: number) => void;
 }
 
 export const List: React.FC<IListProps> = ({ label, folders, deleteItem }) => {

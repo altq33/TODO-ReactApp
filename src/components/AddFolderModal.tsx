@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ColorTag } from "./ColorTag";
-import { colors } from "../server/db.json";
 import { IFolder } from "./List";
 
 interface IAddFolderModalProps {
@@ -8,13 +7,31 @@ interface IAddFolderModalProps {
   updateFoldersList: (folder: IFolder) => void;
 }
 
+interface IColor {
+  id: number;
+  colorHex: string;
+}
+
 export const AddFolderModal: React.FC<IAddFolderModalProps> = ({
   closeModal,
   updateFoldersList,
 }) => {
-  const [selectedColor, setSelectedColor] = useState(colors[0].id);
-  const [inputValue, setInputValue] = useState("");
-  const [isValid, setIsValid] = useState(true);
+  const [inputValue, setInputValue] = useState<string>("");
+  const [isValid, setIsValid] = useState<boolean>(true);
+  const [colors, setColors] = useState<IColor[]>([]);
+  const [selectedColor, setSelectedColor] = useState<number>(1);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/colors")
+      .then((res) => res.json())
+      .then((data) => setColors(data));
+  }, []);
+
+  useEffect(() => {
+    if (colors.length) {
+      setSelectedColor(colors[0].id);
+    }
+  }, [colors]);
 
   const updateFoldersListHandler = () => {
     if (!inputValue) {
@@ -27,6 +44,7 @@ export const AddFolderModal: React.FC<IAddFolderModalProps> = ({
       title: inputValue.trim(),
       colorId: selectedColor,
     });
+    closeModal();
   };
 
   return (

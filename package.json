@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview", 
+    "start": "json-server --watch src/server/db.json"
   },
   "dependencies": {
     "localforage": "^1.10.0",

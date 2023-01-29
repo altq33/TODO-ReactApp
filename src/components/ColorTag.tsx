@@ -35,15 +35,17 @@ export const ColorTag: React.FC<IColorTagProps> = ({
       break;
     }
     case 6: {
-      color = "bg-black";
+      color = "bg-purple-point";
       break;
     }
     case 7: {
+      color = "bg-black";
+      break;
+    }
+    default: {
       color = "bg-salmon-point";
       break;
     }
-    default:
-      color = "bg-gray-point";
   }
 
   if (selected) color += " selected";

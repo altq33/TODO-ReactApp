@@ -15,7 +15,7 @@
 
 @layer components {
   .todo {
-    @apply w-full h-full text-[24px];
+    @apply w-full h-full text-[24px] flex;
   }
 
   .todo-sidebar {
@@ -27,7 +27,7 @@
   }
 
   .todo-sidebar ul li.selected {
-    @apply  bg-white shadow-md cursor-default;
+    @apply bg-white shadow-md cursor-default;
   }
 
   .close-icon {
@@ -60,6 +60,29 @@
 
   .close-modal-btn {
     @apply bg-[url('./assets/icons/close-modal.svg')] bg-cover bg-no-repeat w-[20px] h-[20px] absolute top-[-5px] right-[-5px];
+  }
+
+  .tasks-wrapper {
+    @apply h-full w-full flex flex-col pt-[56px] px-[57px];
+  }
+
+  .tasks-title {
+    @apply text-blue-point text-[32px] font-bold block;
+  }
+
+  .tasks-item {
+    @apply w-full flex items-center h-[30px] mb-[20px];
+  }
+
+  .task-btn {
+    @apply w-[25px] h-[25px] border-2 border-[#E8E8E8] rounded-[50%] mr-[15px] 
+    hover:border-none hover:bg-[#F2F2F2] hover:bg-[url('./assets/icons/complete.svg')]
+    bg-70% bg-center bg-no-repeat;
+  }
+
+  .task-btn-complete {
+    @apply w-[25px] h-[25px] bg-[#4DD599] bg-[url('./assets/icons/complete.svg')] 
+    bg-70% bg-center  bg-no-repeat rounded-[50%] mr-[15px];
   }
 }
 
