@@ -35,23 +35,23 @@
   ],
   "folders": [
     {
-      "id": 1,
-      "title": "кексоид",
-      "colorId": 6
+      "id": 1675172380280,
+      "title": "231321",
+      "colorId": 3
     }
   ],
   "tasks": [
     {
-      "id": 3,
-      "title": "Keksoid3",
-      "isCompleted": true,
-      "folderId": 1
+      "id": 2,
+      "title": "ЗДарова1",
+      "isCompleted": false,
+      "folderId": 1675172380280
     },
     {
       "id": 4,
-      "title": "Keksoid4",
+      "title": "ЗДарова3",
       "isCompleted": false,
-      "folderId": 1
+      "folderId": 1675172380280
     }
   ]
 }

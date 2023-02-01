@@ -1,19 +1,40 @@
 import React from "react";
 import { ColorTag } from "./ColorTag";
 import { IFolder } from "./List";
+import { ITask } from "./TasksItem";
 
-interface IListItemProps extends  IFolder {
-  deleteItem: (id: number) => void; 
-} 
+interface IListItemProps extends IFolder {
+  deleteItem: (id: number) => void;
+  selectFolder: (id: number) => void;
+  selected: boolean;
+}
 
-export const ListItem: React.FC<IListItemProps> = ({ colorId, title, id, deleteItem }) => {
+export const ListItem: React.FC<IListItemProps> = ({
+  colorId,
+  title,
+  id,
+  deleteItem,
+  tasks,
+  selectFolder,
+  selected,
+}) => {
   return (
-    <li>
+    <li onClick={() => selectFolder(id)} className={selected ? "selected" : ""}>
       <div className="flex items-center">
         <ColorTag colorId={colorId} />
-        <span>{title}</span>
+        <span className="mr-3">{title}</span>
+        <div className="text-[18px] text-gray  flex items-center h-full pt-[6px]">
+          {tasks ? tasks.length : 0}
+        </div>
       </div>
-      <div className="close-icon" onClick={() => deleteItem(id)}></div>
+
+      <div
+        className="close-icon"
+        onClick={(element: React.MouseEvent<HTMLDivElement>) => {
+          element.stopPropagation();
+          deleteItem(id);
+        }}
+      ></div>
     </li>
   );
 };

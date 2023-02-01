@@ -1,9 +1,14 @@
 import React from "react";
 
-export const AddFolderBtn = (props: { onClick: () => void }) => {
+interface IAddBtn {
+  onClick: () => void; 
+  title: string; 
+}
+
+export const AddFolderBtn: React.FC<IAddBtn> = ({onClick, title}) => {
   return (
-    <button onClick={props.onClick} className="add-folder-btn">
-      Add folder
+    <button onClick={onClick} className="add-folder-btn">
+      {title}
     </button>
   );
 };

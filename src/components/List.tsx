@@ -14,12 +14,28 @@ interface IListProps {
   label: string;
   folders: Array<IFolder>;
   deleteItem: (id: number) => void;
+  selectFolder: (id: number) => void;
+  selectedFolder: number;
+  allFolder: boolean;
 }
 
-export const List: React.FC<IListProps> = ({ label, folders, deleteItem }) => {
+export const List: React.FC<IListProps> = ({
+  label,
+  folders,
+  deleteItem,
+  selectFolder,
+  selectedFolder,
+  allFolder,
+}) => {
   return (
     <ul className="todo-list">
-      <li className="flex items-center mb-[29px] text-[24px] selected">
+      <li
+        className={
+          "flex items-center mb-[29px] text-[24px]" +
+          (allFolder ? " selected" : "")
+        }
+        onClick={() => selectFolder(0)}
+      >
         <div className="flex items-center">
           <i>
             <img
@@ -31,7 +47,7 @@ export const List: React.FC<IListProps> = ({ label, folders, deleteItem }) => {
           <span className="font-bold block">{label}</span>
         </div>
       </li>
-      {folders.map((el, i) => {
+      {folders.map((el) => {
         return (
           <ListItem
             id={el.id}
@@ -39,6 +55,9 @@ export const List: React.FC<IListProps> = ({ label, folders, deleteItem }) => {
             title={el.title}
             key={el.id}
             deleteItem={deleteItem}
+            tasks={el.tasks}
+            selectFolder={selectFolder}
+            selected={el.id == selectedFolder}
           />
         );
       })}

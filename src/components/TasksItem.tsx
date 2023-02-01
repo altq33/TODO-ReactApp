@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export interface ITask {
   id?: number;
@@ -7,15 +7,15 @@ export interface ITask {
 }
 
 export const TasksItem: React.FC<ITask> = ({ title, isCompleted }) => {
+  const [completed, setCompleted] = useState<boolean>(isCompleted);
+
   return (
     <div className="tasks-item">
       <button
-        className={isCompleted ? "task-btn" : "task-btn-complete"}
+        className={completed ? "task-btn-complete" : "task-btn"}
+        onClick={() => setCompleted((prev) => !prev)}
       ></button>
-      <input className="text-black text-[26px] block" value={title} readOnly/>
+      <input className="text-black text-[26px] block" value={title} readOnly />
     </div>
   );
 };
-
-
-

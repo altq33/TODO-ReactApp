@@ -6,11 +6,17 @@ import { List, IFolder } from "./List";
 interface ISidebarProps {
   foldersList: IFolder[];
   setFoldersList: Dispatch<SetStateAction<IFolder[]>>;
+  selectFolder: (id: number) => void;
+  selectedFolder: number;
+  allFolder: boolean;
 }
 
 export const Sidebar: React.FC<ISidebarProps> = ({
   foldersList,
   setFoldersList,
+  selectFolder,
+  selectedFolder,
+  allFolder,
 }) => {
   const [addModalIsOpen, setAddModalIsOpen] = useState<boolean>(false);
 
@@ -43,7 +49,14 @@ export const Sidebar: React.FC<ISidebarProps> = ({
         }
       }}
     >
-      <List label="All tasks" folders={foldersList} deleteItem={deleteItem} />
+      <List
+        label="All tasks"
+        allFolder={allFolder}
+        folders={foldersList}
+        deleteItem={deleteItem}
+        selectFolder={selectFolder}
+        selectedFolder={selectedFolder}
+      />
       <div>
         {addModalIsOpen && (
           <AddFolderModal
@@ -51,7 +64,7 @@ export const Sidebar: React.FC<ISidebarProps> = ({
             updateFoldersList={addItem}
           />
         )}
-        <AddFolderBtn onClick={() => setAddModalIsOpen(true)} />
+        <AddFolderBtn onClick={() => setAddModalIsOpen(true)} title="Add folder"/>
       </div>
     </div>
   );
