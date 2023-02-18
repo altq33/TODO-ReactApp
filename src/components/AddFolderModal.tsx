@@ -43,6 +43,7 @@ export const AddFolderModal: React.FC<IAddFolderModalProps> = ({
       id: Date.now(),
       title: inputValue.trim(),
       colorId: selectedColor,
+      tasks: [],
     });
     closeModal();
   };

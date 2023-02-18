@@ -67,7 +67,7 @@
   }
 
   .tasks-title {
-    @apply text-blue-point text-[32px] font-bold block;
+    @apply text-blue-point text-[32px] font-bold;
   }
 
   .tasks-item {
