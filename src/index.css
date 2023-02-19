@@ -15,15 +15,15 @@
 
 @layer components {
   .todo {
-    @apply w-full h-full text-[24px] flex;
+    @apply w-full h-screen overflow-hidden text-[24px] flex;
   }
 
   .todo-sidebar {
-    @apply w-1/4 h-full bg-side-bg border-sb-border border border-solid px-[32px] pt-[50px] pb-[20px] flex flex-col flex-grow-0 shrink-0 justify-between;
+    @apply w-1/4 min-w-min h-full bg-side-bg border-sb-border border border-solid px-[32px] pt-[50px] pb-[20px] flex flex-col flex-grow-0 shrink-0 justify-between;
   }
 
   .todo-sidebar ul li {
-    @apply transition rounded-[4px] py-[10px] pl-[12px] cursor-pointer w-full hover:bg-zinc-50 hover:bg-opacity-50 hover:translate-x-2 flex items-center justify-between;
+    @apply transition rounded-[4px] py-[10px] pl-[12px] cursor-pointer w-full hover:bg-zinc-50 hover:bg-opacity-50 hover:translate-x-2 flex items-center justify-between mb-3;
   }
 
   .todo-sidebar ul li.selected {
@@ -39,7 +39,7 @@
   }
 
   .color-tag {
-    @apply w-[15px] h-[15px] rounded-[50%] mr-[10px];
+    @apply w-[15px] h-[15px] rounded-[50%] mr-[10px] flex-shrink-0;
   }
 
   .add-folder-btn {
@@ -63,7 +63,7 @@
   }
 
   .tasks-wrapper {
-    @apply h-full w-full flex flex-col pt-[56px] px-[57px];
+    @apply h-full w-full flex flex-col pt-[56px] px-[57px] overflow-auto;
   }
 
   .tasks-title {
@@ -71,18 +71,23 @@
   }
 
   .tasks-item {
-    @apply w-full flex items-center h-[30px] mb-[20px];
+    @apply flex p-3 rounded-lg hover:bg-zinc-100 hover:bg-opacity-50 items-center mb-[20px];
   }
 
   .task-btn {
-    @apply w-[25px] h-[25px] border-2 border-[#E8E8E8] rounded-[50%] mr-[15px] 
+    @apply w-[25px] h-[25px] border-2   border-[#E8E8E8] rounded-[50%] mr-[15px] 
     hover:border-none hover:bg-[#F2F2F2] hover:bg-[url('./assets/icons/complete.svg')]
-    bg-70% bg-center bg-no-repeat;
+    bg-70% bg-center bg-no-repeat flex-shrink-0 cursor-pointer;
   }
 
   .task-btn-complete {
     @apply w-[25px] h-[25px] bg-[#4DD599] bg-[url('./assets/icons/complete.svg')] 
-    bg-70% bg-center  bg-no-repeat rounded-[50%] mr-[15px];
+    bg-70% bg-center  bg-no-repeat rounded-[50%] mr-[15px] flex-shrink-0 cursor-pointer;
+  }
+
+  .tasks-item:hover .edit-task,
+  .tasks-item:hover .delete-task {
+    @apply block;
   }
 }
 
